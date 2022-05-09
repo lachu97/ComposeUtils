@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
@@ -23,17 +25,14 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val scrollstate = rememberScrollState()
             ComposeUtilsTheme {
                 // A surface container using the 'background' color from the theme
-                Scaffold(
-                    modifier = Modifier
-                        .fillMaxSize(),
-                    backgroundColor = Color.White.copy(0.5f)
-                ) {
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(10.dp),
+                            .padding(10.dp)
+                        ,
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(25.dp)
                     ) {
@@ -41,8 +40,10 @@ class MainActivity : ComponentActivity() {
                         NormalText()
                         Paragraphy()
                         ScrollText()
+                        CustomInput()
+                        Outlinetexty()
                     }
-                }
+
             }
         }
     }
